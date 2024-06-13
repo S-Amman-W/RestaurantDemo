@@ -1,0 +1,24 @@
+.AppBar.MuiPaper-root.footer {
+  color: black;
+  padding: 5px;
+}
+
+.itemRow > * {
+  margin: 0 10px !important;
+}
+
+.itemCol > * {
+  margin: 15px 0 !important;
+}
+
+.MuiTypography-root {
+  color: black;
+}
+
+a > .FooterTypography.MuiTypography-root {
+  margin: 0;
+}
+
+.FooterTypography:hover {
+  text-decoration: underline;
+}

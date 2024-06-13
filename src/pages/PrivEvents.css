@@ -1,0 +1,48 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.itemRow > * {
+  margin: 0 15px !important;
+}
+
+.itemRow.bigGap > * {
+  margin: 0 40px !important;
+}
+.itemCol > * {
+  margin: 15px 0 !important;
+}
+
+.itemCol.bigGap > * {
+  margin: 40px 0 !important;
+}
+
+.heroPrivEvents {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  padding: 15% 0% 15% 0%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+.react-multi-carousel-dot-list {
+  width: 33%;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+}
+
+.MuiTextField-root {
+  width: 30%;
+}
+
+.MuiTextField-root.multiText {
+  width: 62%;
+}

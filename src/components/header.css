@@ -1,0 +1,13 @@
+.AppBar.MuiPaper-root {
+  box-shadow: none;
+  color: black;
+}
+
+.Typography.MuiTypography-root {
+  margin-left: 4vw;
+  margin-right: 4vw;
+}
+
+.Typography:hover {
+  text-decoration: underline;
+}

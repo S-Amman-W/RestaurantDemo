@@ -1,0 +1,80 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.itemRow > * {
+  margin: 0 10px !important;
+}
+
+.itemCol > * {
+  margin: 15px 0 !important;
+}
+
+.itemCol.bigGap > * {
+  margin: 40px 0 !important;
+}
+
+.heroLanding {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  padding: 15% 0% 15% 0%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+.carouselContainer {
+  padding: 10px 10px;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hoverImage {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+}
+
+.hoverImage:hover {
+  transform: translateY(-10px) !important;
+}
+
+.featureItem {
+  transform: translateY(-10px) !important;
+}
+
+.hoverImage:hover {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+}
+
+.img_wrap {
+  position: relative;
+}
+
+.img_description {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.img_wrap:hover .img_description {
+  visibility: visible;
+  opacity: 1;
+}
