@@ -1,42 +1,12 @@
 import Header from "../components/header.tsx";
 import "./Menu.css";
 import Footer from "../components/footer.tsx";
-import {
-  Checkbox,
-  FormControlLabel,
-  TextField,
-  Typography
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-const styles = {
-  small: {
-    fontSize: "15px"
-  },
-  medium: {
-    fontSize: "20px"
-  },
-  large: {
-    fontSize: "25px"
-  },
-  title: {
-    fontSize: "96px"
-  },
-  vertLine: {
-    borderLeft: "solid black 1px",
-    paddingLeft: "30px"
-  },
-  vertCenter: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center"
-  }
-};
 
 function Menu() {
   const responsive = {

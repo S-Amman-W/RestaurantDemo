@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/system";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const StyledGrid = styled(Grid)({
@@ -142,7 +142,7 @@ function Landing() {
   const [showImg1, setShowImg1] = useState(false);
   const [showImg2, setShowImg2] = useState(false);
   const [showImg3, setShowImg3] = useState(false);
-  const [showText1, setShowText1] = useState(true);
+  const showText1 = true;
   const [showText2, setShowText2] = useState(false);
 
   return (
