@@ -43,9 +43,9 @@ function Menu() {
   };
 
   const images = [
-    "src/assets/food1.png",
-    "src/assets/food2.png",
-    "src/assets/food3.png"
+    "/assets/food1.png",
+    "/assets/food2.png",
+    "/assets/food3.png"
   ];
 
   const menuItems = [

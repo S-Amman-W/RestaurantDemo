@@ -55,7 +55,7 @@ export default function Footer({ transparent }: props) {
           className="itemCol"
         >
           <div>
-            <img src="src\assets\logo.png" style={{ width: "100px" }} />
+            <img src="\assets\logo.png" style={{ width: "100px" }} />
           </div>
           <div className="itemRow">
             <InstagramIcon />
@@ -123,7 +123,7 @@ export default function Footer({ transparent }: props) {
         </StyledGrid>
         <StyledGrid item xs={3} className="itemCol">
           <div style={{ paddingBottom: "10px" }}>
-            <img src="src\assets\logo.png" style={{ width: "200px" }} />
+            <img src="\assets\logo.png" style={{ width: "200px" }} />
           </div>
           <div className="itemCol" style={{ paddingLeft: "50px" }}>
             <Typography variant="h6">

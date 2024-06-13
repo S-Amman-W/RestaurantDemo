@@ -55,7 +55,7 @@ function PrivEvents() {
       <Header showSandwichMenu transparent />
       {/* Hero Image */}
       <div>
-        <img src="src\assets\privDining.png" />
+        <img src="\assets\privDining.png" />
       </div>
       {/* Intro Text */}
       <div className="itemCol" style={{ textAlign: "center" }}>

@@ -123,7 +123,7 @@ export default function Header({ showSandwichMenu, transparent }: props) {
         <Link to="/">
           <img
             className="Typography"
-            src="src\assets\logo.png"
+            src="\assets\logo.png"
             style={{ width: "100px" }}
           />
         </Link>
