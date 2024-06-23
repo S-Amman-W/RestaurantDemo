@@ -125,7 +125,7 @@ export default function Footer({ transparent }: props) {
             <img src="\assets\logo.png" style={{ width: "200px" }} />
           </div>
           <div className="itemCol" style={{ paddingLeft: "50px" }}>
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{ wordWrap: "break-word" }}>
               <u>Contact</u>
             </Typography>
             <Typography
