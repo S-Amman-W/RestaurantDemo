@@ -134,7 +134,6 @@ export default function Header({ showSandwichMenu, transparent }: props) {
             className="Typography"
             src="\assets\logo.png"
             style={{ width: "100px" }}
-            data-aos="headerLogo"
           />
         </Link>
         {!showMenu && (
