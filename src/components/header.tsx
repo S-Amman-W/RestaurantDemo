@@ -18,6 +18,9 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import "./header.css";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // defining the props interface
 interface props {
   showSandwichMenu?: boolean;
@@ -25,7 +28,7 @@ interface props {
 }
 
 export default function Header({ showSandwichMenu, transparent }: props) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 910);
   const [showMenu, setShowMenu] = useState(showSandwichMenu);
   const [open, setOpen] = useState(false);
 
@@ -76,6 +79,12 @@ export default function Header({ showSandwichMenu, transparent }: props) {
 
   const backgroundStyle = transparent ? "rgba(255, 255, 255, 0)" : "#d9d9d9";
 
+  useEffect(() => {
+    AOS.init({
+      duration: 2000
+    });
+  }, []);
+
   return (
     <AppBar
       className="AppBar"
@@ -125,6 +134,7 @@ export default function Header({ showSandwichMenu, transparent }: props) {
             className="Typography"
             src="\assets\logo.png"
             style={{ width: "100px" }}
+            data-aos="headerLogo"
           />
         </Link>
         {!showMenu && (

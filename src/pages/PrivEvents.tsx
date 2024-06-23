@@ -10,6 +10,9 @@ import {
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function PrivEvents() {
   const responsive = {
@@ -49,6 +52,12 @@ function PrivEvents() {
       </div>
     );
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000
+    });
+  }, []);
 
   return (
     <div style={{ position: "relative" }}>
@@ -110,6 +119,7 @@ function PrivEvents() {
                 display: "inline-block"
               }}
               key={i}
+              data-aos="fade-up"
             >
               <div
                 style={{
