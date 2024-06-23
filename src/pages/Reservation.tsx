@@ -18,8 +18,7 @@ import { useState } from "react";
 import dayjs from "dayjs";
 
 const StyledGrid = styled(Grid)({
-  padding: "0px",
-  margin: "10px"
+  padding: "0px"
 });
 
 const StyledFormControl = styled(FormControl)({
@@ -59,43 +58,43 @@ const styles = {
 
 const dateTimes = [
   {
-    date: "2024-06-10",
+    date: "2024-06-24",
     time: "12:00 PM"
   },
   {
-    date: "2024-06-11",
+    date: "2024-06-25",
     time: "1:00 PM"
   },
   {
-    date: "2024-06-12",
+    date: "2024-06-26",
     time: "2:00 PM"
   },
   {
-    date: "2024-06-10",
+    date: "2024-06-24",
     time: "3:00 PM"
   },
   {
-    date: "2024-06-13",
+    date: "2024-06-27",
     time: "4:00 PM"
   },
   {
-    date: "2024-06-11",
+    date: "2024-06-25",
     time: "5:00 PM"
   },
   {
-    date: "2024-06-11",
+    date: "2024-06-25",
     time: "6:00 PM"
   },
   {
-    date: "2024-06-12",
+    date: "2024-06-26",
     time: "7:00 PM"
   },
   {
-    date: "2024-06-15",
+    date: "2024-06-29",
     time: "8:00 PM"
   },
   {
-    date: "2024-06-11",
+    date: "2024-06-25",
     time: "9:00 PM"
   }
 ];

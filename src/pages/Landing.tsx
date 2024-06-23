@@ -1,17 +1,18 @@
 import Header from "../components/header.tsx";
 import "./Landing.css";
 import Footer from "../components/footer.tsx";
-import { Fade, Grow, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/system";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const StyledGrid = styled(Grid)({
-  padding: "0px",
-  margin: "10px"
+  padding: "0px"
 });
 
 const styles = {
@@ -25,7 +26,7 @@ const styles = {
     fontSize: "25px"
   },
   title: {
-    fontSize: "96px"
+    fontSize: "7vw"
   },
   vertLine: {
     borderLeft: "solid black 1px",
@@ -37,41 +38,6 @@ const styles = {
     justifyContent: "center"
   }
 };
-
-function Scroller({
-  children,
-  trackIds,
-  onScrollToElement
-}: {
-  children: React.ReactNode;
-  trackIds: string[];
-  onScrollToElement: (element: HTMLElement) => void;
-}) {
-  return (
-    <div
-      onScroll={(e) => {
-        for (let i = 0; i <= trackIds.length - 1; i++) {
-          const id = trackIds[i];
-          const trackedEl = document.getElementById(id);
-          const scrollerEl = e.currentTarget;
-
-          if (
-            trackedEl &&
-            scrollerEl.scrollTop >
-              trackedEl.offsetTop +
-                trackedEl.offsetHeight -
-                scrollerEl.offsetHeight
-          ) {
-            onScrollToElement(trackedEl);
-          }
-        }
-      }}
-      style={{ height: "100vh", overflow: "auto" }}
-    >
-      {children}
-    </div>
-  );
-}
 
 function Landing() {
   const responsive = {
@@ -139,92 +105,76 @@ function Landing() {
   };
 
   const [curSlide, setCurSlide] = useState(1);
-  const [showImg1, setShowImg1] = useState(false);
-  const [showImg2, setShowImg2] = useState(false);
-  const [showImg3, setShowImg3] = useState(false);
-  const showText1 = true;
-  const [showText2, setShowText2] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000
+    });
+  }, []);
 
   return (
-    <Scroller
-      trackIds={["myImg1", "myImg2", "myImg3", "myText1", "myText2"]}
-      onScrollToElement={(el) => {
-        if (el.id === "myImg1" && !showImg1) setShowImg1(true);
-        if (el.id === "myImg2" && !showImg2) setShowImg2(true);
-        if (el.id === "myImg3" && !showImg3) setShowImg3(true);
-        if (el.id === "myText2" && !showText2) setShowText2(true);
-      }}
-    >
+    <div>
       <Header />
       {/* Hero Image */}
       <div className="heroLanding">
-        <div style={{ textAlign: "center" }} className="itemCol bigGap">
-          <Fade in={showText1}>
-            <h1 id="myText1" style={styles.title}>
-              Restaurant Name
-            </h1>
-          </Fade>
-          <Fade in={showText1} {...(showText1 ? { timeout: 1000 } : {})}>
-            <div id="myText1" className="itemRow">
-              <Link to="/reservations">
-                <button className="button">Reservations</button>
-              </Link>
-              <Link to="/privateEvents">
-                <button className="button">Private Events</button>
-              </Link>
-            </div>
-          </Fade>
+        <div
+          style={{ textAlign: "center", width: "50%" }}
+          className="itemCol bigGap"
+        >
+          <h1 data-aos="fade-up" style={styles.title}>
+            Restaurant Name
+          </h1>
+          <div data-aos="fade-up" className="itemRow">
+            <Link to="/reservations">
+              <button className="button">Reservations</button>
+            </Link>
+            <Link to="/privateEvents">
+              <button className="button">Private Events</button>
+            </Link>
+          </div>
         </div>
       </div>
       {/* Intro Text */}
       <StyledGrid container className="itemRow">
-        <Fade in={showText2}>
-          <StyledGrid
-            item
-            xs={4.5}
-            className="itemCol"
-            sx={[styles.vertCenter, { textAlign: "left", paddingLeft: "15px" }]}
-            id="myText2"
-          >
-            <h2 style={{ fontWeight: "700", fontSize: "40px" }}>
-              Lorem ipsum dolor sit amet consectetur.
-            </h2>
-            <Typography variant="h6">
-              Lorem ipsum dolor sit amet consectetur. Tempor quis imperdiet id
-              placerat imperdiet magna maecenas urna augue. Tempor quis
-              imperdiet id placerat imperdiet magna maecenas urna augue.
-            </Typography>
-            <div style={{ display: "inline-block" }}>
-              <button className="button">View Menu</button>
-            </div>
-          </StyledGrid>
-        </Fade>
+        <StyledGrid
+          item
+          xs={4.5}
+          className="itemCol"
+          sx={[styles.vertCenter, { textAlign: "left", paddingLeft: "15px" }]}
+          data-aos="fade-up"
+        >
+          <h2 style={{ fontWeight: "700", fontSize: "40px" }}>
+            Lorem ipsum dolor sit amet consectetur.
+          </h2>
+          <Typography variant="h6">
+            Lorem ipsum dolor sit amet consectetur. Tempor quis imperdiet id
+            placerat imperdiet magna maecenas urna augue. Tempor quis imperdiet
+            id placerat imperdiet magna maecenas urna augue.
+          </Typography>
+          <div style={{ display: "inline-block" }}>
+            <button className="button">View Menu</button>
+          </div>
+        </StyledGrid>
         <StyledGrid item container xs={7}>
           <StyledGrid item xs={1} />
-          <StyledGrid item xs={4} sx={{ textAlign: "right" }}>
-            <Grow in={showImg1}>
-              <img
-                id="myImg1"
-                src="https://placehold.co/235x210"
-                style={{ paddingBottom: "10px" }}
-              />
-            </Grow>
-            <Grow in={showImg2}>
-              <img
-                id="myImg2"
-                src="https://placehold.co/315x265"
-                style={{ paddingRight: "5px" }}
-              />
-            </Grow>
+          <StyledGrid item xs={4} sx={{ textAlign: "right", margin: "10px" }}>
+            <img
+              data-aos="flip-up"
+              src="https://placehold.co/235x210"
+              style={{ paddingBottom: "10px" }}
+            />
+            <img
+              data-aos="flip-up"
+              src="https://placehold.co/315x265"
+              style={{ paddingRight: "5px" }}
+            />
           </StyledGrid>
-          <StyledGrid item xs={5} sx={{ textAlign: "left" }}>
-            <Grow in={showImg3}>
-              <img
-                id="myImg3"
-                src="https://placehold.co/345x410"
-                style={{ paddingTop: "25px" }}
-              />
-            </Grow>
+          <StyledGrid item xs={5} sx={{ textAlign: "left", margin: "10px" }}>
+            <img
+              data-aos="flip-up"
+              src="https://placehold.co/345x410"
+              style={{ paddingTop: "25px" }}
+            />
           </StyledGrid>
         </StyledGrid>
       </StyledGrid>
@@ -260,7 +210,14 @@ function Landing() {
       {/* Gallery */}
       <Divider />
       <Typography variant="h3">Gallery</Typography>
-      <div style={{ paddingTop: "15px", paddingBottom: "15px" }}>
+      <div
+        style={{
+          paddingTop: "15px",
+          paddingBottom: "15px",
+          width: "100vw",
+          overflow: "hidden"
+        }}
+      >
         <Carousel
           itemClass="hoverImage"
           containerClass="carouselContainer"
@@ -284,7 +241,14 @@ function Landing() {
         </Carousel>
       </div>
 
-      <div style={{ paddingTop: "15px", paddingBottom: "15px" }}>
+      <div
+        style={{
+          paddingTop: "15px",
+          paddingBottom: "15px",
+          width: "100vw",
+          overflow: "hidden"
+        }}
+      >
         <Carousel
           itemClass="hoverImage"
           containerClass="carouselContainer"
@@ -311,7 +275,13 @@ function Landing() {
       <Divider />
       <Typography variant="h3">Testimonials</Typography>
       <div
-        style={{ paddingTop: "15px", paddingBottom: "40px", height: "350px" }}
+        style={{
+          paddingTop: "15px",
+          paddingBottom: "40px",
+          height: "350px",
+          width: "100vw",
+          overflow: "hidden"
+        }}
       >
         <Carousel
           containerClass="carouselContainer"
@@ -387,7 +357,7 @@ function Landing() {
         </Carousel>
       </div>
       <Footer />
-    </Scroller>
+    </div>
   );
 }
 

@@ -9,11 +9,11 @@
 }
 
 .itemCol > * {
-  margin: 15px 0 !important;
+  margin: 2vw 0 !important;
 }
 
 .itemCol.bigGap > * {
-  margin: 40px 0 !important;
+  margin: 3vw 0 !important;
 }
 
 .heroLanding {

@@ -12,8 +12,7 @@ import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
 
 const StyledGrid = styled(Grid)({
-  padding: "0px",
-  margin: "10px"
+  padding: "0px"
 });
 
 const styles = {
