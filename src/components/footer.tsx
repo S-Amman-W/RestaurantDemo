@@ -128,7 +128,10 @@ export default function Footer({ transparent }: props) {
             <Typography variant="h6">
               <u>Contact</u>
             </Typography>
-            <Typography variant="h6" sx={[styles.small]}>
+            <Typography
+              variant="h6"
+              sx={[styles.small, { wordWrap: "break-word" }]}
+            >
               example@gmail.com <br /> 📞 546-826-8282
             </Typography>
           </div>
